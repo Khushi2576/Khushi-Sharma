@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechNova 2026 | Technical Festival</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-950 text-white font-sans">
+
+    <!-- Hero Section -->
+    <header class="min-h-screen relative overflow-hidden">
+
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-br
+                    from-indigo-950 via-slate-950 to-cyan-950">
+        </div>
+
+        <!-- Decorative Circles -->
+        <div class="absolute -top-32 -right-20 h-96 w-96
+                    rounded-full bg-cyan-400/20 blur-3xl">
+        </div>
+
+        <div class="absolute bottom-0 -left-20 h-96 w-96
+                    rounded-full bg-indigo-500/20 blur-3xl">
+        </div>
+
+        <!-- Navigation -->
+        <nav class="relative z-10 max-w-6xl mx-auto px-6 py-6
+                    flex items-center justify-between">
+
+            <div class="font-black text-2xl tracking-tight">
+                <span class="text-cyan-300">TECH</span>NOVA
+            </div>
+
+            <a href="#register"
+               class="hidden sm:inline-block rounded-full
+                      border border-cyan-300/40 px-5 py-2
+                      text-sm font-semibold
+                      hover:bg-cyan-300 hover:text-slate-950
+                      transition">
+                Register Now
+            </a>
+        </nav>
+
+        <!-- Main Hero Content -->
+        <main class="relative z-10 max-w-6xl mx-auto px-6
+                     pt-20 pb-24 text-center">
+
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2
+                        rounded-full border border-cyan-300/30
+                        bg-white/5 px-4 py-2 text-sm
+                        text-cyan-200 backdrop-blur">
+
+                <span class="h-2 w-2 rounded-full bg-cyan-300"></span>
+
+                Annual Technical Festival 2026
+            </div>
+
+            <!-- Heading -->
+            <h1 class="mt-7 text-5xl sm:text-7xl
+                       font-black tracking-tight">
+
+                INNOVATE.
+
+                <br>
+
+                <span class="text-transparent bg-clip-text
+                             bg-gradient-to-r from-cyan-300
+                             to-indigo-300">
+                    CREATE. CONQUER.
+                </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="mx-auto mt-6 max-w-2xl
+                      text-lg leading-8 text-slate-300">
+
+                Join us for a high-energy celebration of technology,
+                creativity and ideas. Challenge yourself, build something
+                amazing and experience the future.
+
+            </p>
+
+            <!-- Buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row
+                        justify-center gap-4">
+
+                <a href="#register"
+                   class="rounded-xl bg-cyan-300
+                          px-7 py-3.5 font-bold text-slate-950
+                          shadow-lg shadow-cyan-400/20
+                          hover:bg-cyan-200 transition">
+
+                    Register for the Fest
+
+                </a>
+
+                <a href="#events"
+                   class="rounded-xl border border-white/20
+                          bg-white/5 px-7 py-3.5 font-bold
+                          hover:bg-white/10 transition">
+
+                    Explore Events
+
+                </a>
+
+            </div>
+
+            <!-- Festival Information -->
+            <div class="mt-16 grid grid-cols-1
+                        sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+
+                <!-- Date -->
+                <div class="rounded-2xl border border-white/10
+                            bg-white/5 p-5 backdrop-blur">
+
+                    <div class="text-2xl font-black text-cyan-300">
+                        18–19
+                    </div>
+
+                    <div class="mt-1 text-sm text-slate-300">
+                        November 2026
+                    </div>
+
+                </div>
+
+                <!-- Events -->
+                <div class="rounded-2xl border border-white/10
+                            bg-white/5 p-5 backdrop-blur">
+
+                    <div class="text-2xl font-black text-cyan-300">
+                        10+
+                    </div>
+
+                    <div class="mt-1 text-sm text-slate-300">
+                        Tech Events
+                    </div>
+
+                </div>
+
+                <!-- Prize -->
+                <div class="rounded-2xl border border-white/10
+                            bg-white/5 p-5 backdrop-blur">
+
+                    <div class="text-2xl font-black text-cyan-300">
+                        ₹50K+
+                    </div>
+
+                    <div class="mt-1 text-sm text-slate-300">
+                        Prizes & Goodies
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </header>
+
+
+    <!-- Events Section -->
+    <section id="events" class="bg-slate-900 py-20">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <!-- Section Heading -->
+            <div class="max-w-2xl">
+
+                <p class="text-cyan-300 font-bold uppercase
+                          tracking-widest text-sm">
+
+                    What awaits you
+
+                </p>
+
+                <h2 class="mt-2 text-4xl font-black">
+                    Build. Compete. Learn.
+                </h2>
+
+                <p class="mt-4 text-slate-400">
+                    Pick your challenge and turn your ideas into impact.
+                </p>
+
+            </div>
+
+
+            <!-- Event Cards -->
+            <div class="mt-10 grid md:grid-cols-3 gap-6">
+
+                <!-- Hackathon -->
+                <article class="rounded-2xl border border-white/10
+                                bg-slate-950 p-7
+                                hover:-translate-y-1 transition">
+
+                    <div class="text-3xl">
+                        ⚡
+                    </div>
+
+                    <h3 class="mt-5 text-xl font-bold">
+                        Hackathon
+                    </h3>
+
+                    <p class="mt-3 text-slate-400">
+                        24 hours to solve real-world problems with
+                        code, creativity and teamwork.
+                    </p>
+
+                </article>
+
+
+                <!-- AI Challenge -->
+                <article class="rounded-2xl border border-white/10
+                                bg-slate-950 p-7
+                                hover:-translate-y-1 transition">
+
+                    <div class="text-3xl">
+                        🤖
+                    </div>
+
+                    <h3 class="mt-5 text-xl font-bold">
+                        AI Challenge
+                    </h3>
+
+                    <p class="mt-3 text-slate-400">
+                        Explore machine learning, intelligent systems
+                        and the next wave of innovation.
+                    </p>
+
+                </article>
+
+
+                <!-- Project Expo -->
+                <article class="rounded-2xl border border-white/10
+                                bg-slate-950 p-7
+                                hover:-translate-y-1 transition">
+
+                    <div class="text-3xl">
+                        💡
+                    </div>
+
+                    <h3 class="mt-5 text-xl font-bold">
+                        Project Expo
+                    </h3>
+
+                    <p class="mt-3 text-slate-400">
+                        Showcase your best project and inspire fellow
+                        students and faculty.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Registration Section -->
+    <section id="register"
+             class="bg-gradient-to-r
+                    from-indigo-700 to-cyan-700 py-16">
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            <h2 class="text-4xl font-black">
+                Your Idea Could Be the Next Big Thing.
+            </h2>
+
+            <p class="mt-4 text-indigo-100">
+                Students and faculty are warmly invited to participate,
+                collaborate and celebrate technology.
+            </p>
+
+            <button
+                onclick="alert('Registration interest recorded! See you at TechNova 2026.')"
+                class="mt-8 rounded-xl bg-white px-8 py-3.5
+                       font-bold text-indigo-800
+                       hover:bg-slate-100 transition">
+
+                Reserve Your Spot →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 text-center
+                   text-sm text-slate-500">
+
+        © 2026 TechNova • Annual Technical Festival
+
+    </footer>
+
+</body>
+</html>
