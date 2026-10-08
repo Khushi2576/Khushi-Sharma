@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success {
+            margin-top: 20px;
+            padding: 12px;
+            background: #d1fae5;
+            color: #065f46;
+            border-radius: 6px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Registration</h1>
+
+    <form id="registrationForm">
+
+        <label>Full Name *</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <div id="nameError" class="error"></div>
+
+        <label>Email *</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <div id="emailError" class="error"></div>
+
+        <label>Password *</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <div id="passwordError" class="error"></div>
+
+        <label>Mobile Number *</label>
+        <input type="text" id="mobile" placeholder="Enter 10-digit mobile number">
+        <div id="mobileError" class="error"></div>
+
+        <label>Course *</label>
+        <select id="course">
+            <option value="">Select Course</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics">Electronics</option>
+        </select>
+        <div id="courseError" class="error"></div>
+
+        <button type="submit">Register</button>
+
+        <div id="successMessage" class="success">
+            Registration Successful!
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+
+    // Get form
+    const form = document.getElementById("registrationForm");
+
+    // Add submit event listener
+    form.addEventListener("submit", function(event) {
+
+        // Stop form from submitting automatically
+        event.preventDefault();
+
+        // Get input values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const mobile = document.getElementById("mobile").value.trim();
+        const course = document.getElementById("course").value;
+
+        // Error elements
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const mobileError = document.getElementById("mobileError");
+        const courseError = document.getElementById("courseError");
+
+        const successMessage = document.getElementById("successMessage");
+
+        // Clear previous errors
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        mobileError.textContent = "";
+        courseError.textContent = "";
+
+        successMessage.style.display = "none";
+
+        let valid = true;
+
+        // 1. Mandatory field validation
+        if (name === "") {
+            nameError.textContent = "Name is required.";
+            valid = false;
+        }
+
+        // 2. Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+            emailError.textContent = "Email is required.";
+            valid = false;
+        }
+        else if (!emailPattern.test(email)) {
+            emailError.textContent = "Enter a valid email address.";
+            valid = false;
+        }
+
+        // 3. Password validation
+        if (password === "") {
+            passwordError.textContent = "Password is required.";
+            valid = false;
+        }
+        else if (password.length < 6) {
+            passwordError.textContent = "Password must be at least 6 characters.";
+            valid = false;
+        }
+
+        // 4. Mobile number validation
+        const mobilePattern = /^[0-9]{10}$/;
+
+        if (mobile === "") {
+            mobileError.textContent = "Mobile number is required.";
+            valid = false;
+        }
+        else if (!mobilePattern.test(mobile)) {
+            mobileError.textContent = "Enter a valid 10-digit mobile number.";
+            valid = false;
+        }
+
+        // 5. Course validation
+        if (course === "") {
+            courseError.textContent = "Please select a course.";
+            valid = false;
+        }
+
+        // If all fields are valid
+        if (valid) {
+            successMessage.style.display = "block";
+
+            // Clear form
+            form.reset();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
