@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Grade Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4f46e5;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .grade {
+            font-size: 25px;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Grade Calculator</h1>
+
+        <label>Mathematics</label>
+        <input type="number" id="maths" min="0" max="100"
+               placeholder="Enter marks">
+
+        <label>Physics</label>
+        <input type="number" id="physics" min="0" max="100"
+               placeholder="Enter marks">
+
+        <label>Chemistry</label>
+        <input type="number" id="chemistry" min="0" max="100"
+               placeholder="Enter marks">
+
+        <label>Computer Science</label>
+        <input type="number" id="computer" min="0" max="100"
+               placeholder="Enter marks">
+
+        <label>English</label>
+        <input type="number" id="english" min="0" max="100"
+               placeholder="Enter marks">
+
+        <button onclick="calculateGrade()">
+            Calculate Result
+        </button>
+
+        <p id="error" class="error"></p>
+
+        <div class="result" id="result">
+
+            <p>
+                <strong>Total Marks:</strong>
+                <span id="total"></span> / 500
+            </p>
+
+            <p>
+                <strong>Percentage:</strong>
+                <span id="percentage"></span>%
+            </p>
+
+            <p>
+                <strong>Grade:</strong>
+                <span id="grade" class="grade"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function calculateGrade() {
+
+            // Get marks
+            let maths = Number(document.getElementById("maths").value);
+            let physics = Number(document.getElementById("physics").value);
+            let chemistry = Number(document.getElementById("chemistry").value);
+            let computer = Number(document.getElementById("computer").value);
+            let english = Number(document.getElementById("english").value);
+
+            let error = document.getElementById("error");
+            let result = document.getElementById("result");
+
+            // Check marks
+            if (
+                maths < 0 || maths > 100 ||
+                physics < 0 || physics > 100 ||
+                chemistry < 0 || chemistry > 100 ||
+                computer < 0 || computer > 100 ||
+                english < 0 || english > 100
+            ) {
+                error.innerHTML = "Please enter marks between 0 and 100.";
+                result.style.display = "none";
+                return;
+            }
+
+            // Calculate total
+            let total =
+                maths +
+                physics +
+                chemistry +
+                computer +
+                english;
+
+            // Calculate percentage
+            let percentage = (total / 500) * 100;
+
+            // Calculate grade
+            let grade;
+
+            if (percentage >= 90) {
+                grade = "A+";
+            }
+            else if (percentage >= 80) {
+                grade = "A";
+            }
+            else if (percentage >= 70) {
+                grade = "B";
+            }
+            else if (percentage >= 60) {
+                grade = "C";
+            }
+            else if (percentage >= 50) {
+                grade = "D";
+            }
+            else {
+                grade = "F";
+            }
+
+            // Display result
+            document.getElementById("total").innerHTML = total;
+
+            document.getElementById("percentage").innerHTML =
+                percentage.toFixed(2);
+
+            document.getElementById("grade").innerHTML = grade;
+
+            error.innerHTML = "";
+            result.style.display = "block";
+        }
+
+    </script>
+
+</body>
+
+</html>
