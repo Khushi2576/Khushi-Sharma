@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTrack | Sustainable Living</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-50 text-gray-800 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-green-800 text-white p-4 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">🌿 EcoTrack</h1>
+      <span class="text-sm">Small Steps, Big Impact</span>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="max-w-6xl mx-auto px-5 py-10">
+    <div class="bg-gradient-to-r from-green-700 to-emerald-500
+                text-white rounded-3xl p-8 md:p-12 shadow-lg">
+      <p class="uppercase tracking-widest text-green-100 text-sm">
+        Your sustainability journey
+      </p>
+      <h2 class="text-3xl md:text-5xl font-extrabold mt-3">
+        Make Every Day Greener 🌎
+      </h2>
+      <p class="mt-4 max-w-xl text-green-50">
+        Track your eco-friendly habits, earn points, and take
+        small steps toward a cleaner planet.
+      </p>
+      <a href="#habits"
+         class="inline-block mt-6 bg-white text-green-800
+                font-bold px-6 py-3 rounded-xl hover:bg-green-100">
+        Start Your Journey →
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 pb-12">
+
+    <!-- Dashboard -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-gray-500">Today's Eco Score</p>
+        <h3 id="score" class="text-4xl font-bold text-green-700 mt-2">
+          0
+        </h3>
+        <p class="text-sm text-gray-500 mt-2">Points earned today</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-gray-500">Habits Completed</p>
+        <h3 id="completed" class="text-4xl font-bold text-green-700 mt-2">
+          0/5
+        </h3>
+        <p class="text-sm text-gray-500 mt-2">Keep up the good work!</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-gray-500">Daily Progress</p>
+        <h3 id="percentage" class="text-4xl font-bold text-green-700 mt-2">
+          0%
+        </h3>
+        <div class="bg-gray-200 rounded-full h-3 mt-4">
+          <div id="progressBar"
+               class="bg-green-500 rounded-full h-3 transition-all duration-300"
+               style="width: 0%">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eco Habits -->
+    <section id="habits" class="bg-white rounded-2xl p-6 md:p-8 shadow mb-10">
+      <div class="flex flex-wrap justify-between items-center gap-3">
+        <div>
+          <h2 class="text-2xl font-bold">🌱 Daily Eco Habits</h2>
+          <p class="text-gray-500 mt-1">
+            Check the activities you completed today.
+          </p>
+        </div>
+        <button onclick="resetHabits()"
+                class="border border-green-700 text-green-800 px-4 py-2
+                       rounded-lg hover:bg-green-50">
+          Reset Day
+        </button>
+      </div>
+
+      <div class="mt-6 space-y-4" id="habitList">
+
+        <label class="flex items-center gap-4 p-4 bg-green-50 rounded-xl cursor-pointer">
+          <input type="checkbox" class="habit w-5 h-5 accent-green-600"
+                 data-points="10">
+          <span class="flex-1">🚰 Used a reusable water bottle</span>
+          <span class="font-bold text-green-700">+10</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 bg-green-50 rounded-xl cursor-pointer">
+          <input type="checkbox" class="habit w-5 h-5 accent-green-600"
+                 data-points="15">
+          <span class="flex-1">💡 Switched off unused lights</span>
+          <span class="font-bold text-green-700">+15</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 bg-green-50 rounded-xl cursor-pointer">
+          <input type="checkbox" class="habit w-5 h-5 accent-green-600"
+                 data-points="20">
+          <span class="flex-1">♻️ Sorted waste properly</span>
+          <span class="font-bold text-green-700">+20</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 bg-green-50 rounded-xl cursor-pointer">
+          <input type="checkbox" class="habit w-5 h-5 accent-green-600"
+                 data-points="15">
+          <span class="flex-1">🛍️ Avoided single-use plastic</span>
+          <span class="font-bold text-green-700">+15</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 bg-green-50 rounded-xl cursor-pointer">
+          <input type="checkbox" class="habit w-5 h-5 accent-green-600"
+                 data-points="20">
+          <span class="flex-1">🌳 Helped keep my surroundings clean</span>
+          <span class="font-bold text-green-700">+20</span>
+        </label>
+
+      </div>
+
+      <p id="message" class="mt-5 font-semibold text-green-700"
+         aria-live="polite">Start checking off your eco habits!</p>
+    </section>
+
+    <!-- Waste Sorting Quiz -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 shadow">
+      <h2 class="text-2xl font-bold">🗑️ Waste Sorting Challenge</h2>
+      <p class="text-gray-500 mt-2">
+        Test your knowledge of waste segregation.
+      </p>
+
+      <div class="bg-green-50 rounded-xl p-6 mt-5">
+        <p class="text-sm text-gray-500">QUESTION 1</p>
+        <h3 class="text-xl font-bold mt-2">
+          Where should a clean, dry cardboard box go?
+        </h3>
+
+        <div class="grid sm:grid-cols-3 gap-3 mt-5">
+          <button onclick="checkAnswer(this, false)"
+                  class="quiz-option border border-green-200 bg-white p-3 rounded-xl hover:bg-green-100">
+            General waste
+          </button>
+          <button onclick="checkAnswer(this, true)"
+                  class="quiz-option border border-green-200 bg-white p-3 rounded-xl hover:bg-green-100">
+            Recycling
+          </button>
+          <button onclick="checkAnswer(this, false)"
+                  class="quiz-option border border-green-200 bg-white p-3 rounded-xl hover:bg-green-100">
+            Compost
+          </button>
+        </div>
+
+        <p id="quizResult" class="mt-4 font-semibold"
+           aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 text-sm mt-10">
+      <p class="text-2xl">🌍</p>
+      <p class="mt-2 font-semibold">EcoTrack — One Habit at a Time</p>
+      <p class="mt-1">Building a greener tomorrow together.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const habits = document.querySelectorAll(".habit");
+    const scoreElement = document.getElementById("score");
+    const completedElement = document.getElementById("completed");
+    const percentageElement = document.getElementById("percentage");
+    const progressBar = document.getElementById("progressBar");
+    const message = document.getElementById("message");
+
+    function updateDashboard() {
+      let score = 0;
+      let completed = 0;
+
+      habits.forEach(function(habit) {
+        if (habit.checked) {
+          score += Number(habit.dataset.points);
+          completed++;
+        }
+      });
+
+      const percentage = Math.round(
+        (completed / habits.length) * 100
+      );
+
+      scoreElement.textContent = score;
+      completedElement.textContent = completed + "/" + habits.length;
+      percentageElement.textContent = percentage + "%";
+      progressBar.style.width = percentage + "%";
+
+      if (percentage === 100) {
+        message.textContent = "Amazing! You completed all your eco habits! 🎉";
+      } else if (completed > 0) {
+        message.textContent = "Great job! Keep making a difference. 🌱";
+      } else {
+        message.textContent = "Start checking off your eco habits!";
+      }
+    }
+
+    habits.forEach(function(habit) {
+      habit.addEventListener("change", updateDashboard);
+    });
+
+    function resetHabits() {
+      habits.forEach(function(habit) {
+        habit.checked = false;
+      });
+
+      updateDashboard();
+    }
+
+    let quizAnswered = false;
+
+    function checkAnswer(button, isCorrect) {
+      const result = document.getElementById("quizResult");
+
+      if (quizAnswered) {
+        result.textContent = "You've already answered this question.";
+        return;
+      }
+
+      quizAnswered = true;
+
+      document.querySelectorAll(".quiz-option").forEach(function(option) {
+        option.disabled = true;
+        option.classList.remove("hover:bg-green-100");
+      });
+
+      if (isCorrect) {
+        button.classList.add("bg-green-200", "border-green-600");
+        result.textContent = "Correct! Clean, dry cardboard is generally recyclable. ✅";
+        result.className = "mt-4 font-semibold text-green-700";
+      } else {
+        button.classList.add("bg-red-100", "border-red-500");
+        result.textContent = "Not quite! Clean, dry cardboard generally goes into recycling. ♻️";
+        result.className = "mt-4 font-semibold text-red-700";
+      }
+    }
+  </script>
+
+</body>
+</html>
